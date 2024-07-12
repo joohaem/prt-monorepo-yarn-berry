@@ -1,6 +1,6 @@
 # Practice Monorepo with yarn berry
 
-### Init
+### 1. Init
 
 ```bash
 monorepo$ yarn init -2
@@ -9,25 +9,22 @@ monorepo$ yarn add -D typescript prettier eslint
 monorepo$ yarn dlx @yarnpkg/sdks vscode
 ```
 
-### Set workspace
+### 2. Set workspace
 
 ```json
 {
-  ...,
   "workspaces": {
-    "packages": [
-      "package/*"
-    ]
-  },
+    "packages": ["package/*"]
+  }
 }
 ```
 
-### Create packages
+### 3. Create packages
 
 - packages/project1
 - packages/project2
 
-### Share base typescript config
+### 4. Share base typescript config
 
 in tsconfig.base.json,
 
@@ -57,12 +54,11 @@ in package/projectN/tsconfig.json,
 
 ```json
 {
-  ...,
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.base.json"
 }
 ```
 
-### Share common module
+### 5. Share common module
 
 - package/common/project0
 
@@ -91,7 +87,6 @@ in projectN/package.json,
 ```json
   "dependencies": {
     "@monorepo/common": "*",
-    ...
   },
 ```
 
